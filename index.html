@@ -1,15 +1,27 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Anjani Kolluru | Senior Application Developer</title>
 
+<meta name="description" content="Senior Application Developer specializing in enterprise applications, identity automation, access governance, .NET, SQL Server, Azure, React, Angular, and IAM solutions." />
+
 <style>
+:root{
+    --primary:#0b3d62;
+    --secondary:#0077b6;
+    --accent:#00b4d8;
+    --dark:#102030;
+    --text:#243447;
+    --muted:#64748b;
+    --bg:#f4f7fb;
+    --card:#ffffff;
+    --border:#e2e8f0;
+    --shadow:0 18px 45px rgba(15,23,42,.10);
+    --radius:22px;
+}
 
 *{
     margin:0;
@@ -19,570 +31,828 @@
 }
 
 body{
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background:#f4f7fb;
-    color:#222;
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
     line-height:1.7;
 }
 
+a{
+    color:inherit;
+    text-decoration:none;
+}
 
-/* Header */
+ul{
+    padding-left:22px;
+}
 
-header{
+/* Header / Hero */
 
-    min-height:90vh;
+.hero{
+    min-height:58vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     color:white;
-
+    padding:90px 20px 60px;
     background:
-    linear-gradient(
-        135deg,
-        #0b3d62,
-        #0077b6
-    );
-
-    padding:40px 20px;
-
+        radial-gradient(circle at top left, rgba(0,180,216,.45), transparent 35%),
+        linear-gradient(135deg, #071f35, #0b3d62 48%, #0077b6);
+    position:relative;
+    overflow:hidden;
 }
 
+.hero::after{
+    content:"";
+    position:absolute;
+    width:360px;
+    height:360px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-120px;
+    bottom:-140px;
+}
+
+.hero-content{
+    max-width:920px;
+    position:relative;
+    z-index:2;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    font-size:14px;
+    margin-bottom:18px;
+}
 
 .hero h1{
-
-    font-size:55px;
-    margin-bottom:15px;
-
+    font-size:clamp(38px, 6vw, 64px);
+    line-height:1.1;
+    margin-bottom:12px;
 }
-
 
 .hero h2{
-
+    font-size:clamp(20px, 3vw, 28px);
     font-weight:400;
-    margin-bottom:20px;
-
+    margin-bottom:18px;
+    color:#dbeafe;
 }
-
 
 .hero p{
-
-    max-width:700px;
-    margin:auto;
-    font-size:20px;
-
+    max-width:780px;
+    margin:0 auto;
+    font-size:18px;
+    color:#eef6ff;
 }
 
-
+.hero-actions{
+    margin-top:28px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
 
 .btn{
-
-    display:inline-block;
-    margin:25px 10px;
-    padding:14px 28px;
-    border-radius:30px;
-    background:white;
-    color:#0b3d62;
-    text-decoration:none;
-    font-weight:bold;
-
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 24px;
+    border-radius:999px;
+    font-weight:700;
+    transition:.25s ease;
 }
 
+.btn-primary{
+    background:white;
+    color:var(--primary);
+}
 
+.btn-secondary{
+    border:1px solid rgba(255,255,255,.45);
+    color:white;
+    background:rgba(255,255,255,.12);
+}
 
 .btn:hover{
-
     transform:translateY(-3px);
-
 }
-
 
 /* Navigation */
 
 nav{
-
     position:sticky;
     top:0;
-    background:white;
-    padding:15px;
-    text-align:center;
-    box-shadow:0 2px 10px #ddd;
-    z-index:100;
-
+    z-index:1000;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(14px);
+    box-shadow:0 8px 30px rgba(15,23,42,.08);
 }
 
-
-nav a{
-
-    margin:15px;
-    text-decoration:none;
-    color:#0b3d62;
-    font-weight:bold;
-
+.nav-inner{
+    max-width:1180px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
+.logo{
+    font-weight:800;
+    color:var(--primary);
+    letter-spacing:.3px;
+}
 
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
 
-/* Sections */
+.nav-links a{
+    font-weight:700;
+    color:var(--muted);
+    font-size:15px;
+    transition:.2s;
+}
 
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--secondary);
+}
+
+.menu-btn{
+    display:none;
+    border:none;
+    background:var(--primary);
+    color:white;
+    padding:9px 13px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* Layout */
 
 .container{
-
-    max-width:1100px;
+    max-width:1180px;
     margin:auto;
-    padding:60px 20px;
-
+    padding:70px 20px;
 }
-
-
 
 section{
-
-    margin-bottom:60px;
-
+    scroll-margin-top:90px;
+    margin-bottom:80px;
 }
 
-
-
-.title{
-
+.section-heading{
     text-align:center;
-    color:#0b3d62;
-    font-size:32px;
-    margin-bottom:30px;
-
+    margin-bottom:38px;
 }
 
+.section-heading span{
+    color:var(--secondary);
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:13px;
+    letter-spacing:1.6px;
+}
 
+.section-heading h2{
+    color:var(--dark);
+    font-size:clamp(30px, 4vw, 42px);
+    margin-top:8px;
+}
+
+.section-heading p{
+    max-width:720px;
+    margin:12px auto 0;
+    color:var(--muted);
+}
+
+/* Cards */
 
 .card{
-
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    margin-bottom:25px;
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.08);
-
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:32px;
+    box-shadow:var(--shadow);
+    transition:.25s ease;
 }
-
-
 
 .card:hover{
-
     transform:translateY(-5px);
-    transition:.3s;
-
 }
 
+.grid{
+    display:grid;
+    gap:24px;
+}
 
+.grid-2{
+    grid-template-columns:repeat(2, 1fr);
+}
+
+.grid-3{
+    grid-template-columns:repeat(3, 1fr);
+}
+
+.grid-4{
+    grid-template-columns:repeat(4, 1fr);
+}
+
+/* About */
+
+.about-text p{
+    margin-bottom:18px;
+}
+
+.highlight{
+    color:var(--secondary);
+    font-weight:800;
+}
+
+/* Impact */
+
+.metric{
+    text-align:center;
+}
+
+.metric h3{
+    color:var(--secondary);
+    font-size:38px;
+    margin-bottom:5px;
+}
+
+.metric p{
+    color:var(--muted);
+    font-weight:600;
+}
 
 /* Skills */
 
-
 .skills{
-
     display:flex;
     flex-wrap:wrap;
-    gap:15px;
-
+    gap:13px;
 }
-
 
 .skill{
-
     background:#e8f3ff;
-    padding:12px 20px;
-    border-radius:25px;
-    color:#0b3d62;
-    font-weight:bold;
-
+    color:var(--primary);
+    border:1px solid #cbe7ff;
+    padding:11px 17px;
+    border-radius:999px;
+    font-weight:800;
+    font-size:14px;
 }
-
-
 
 /* Project */
 
-.project h3{
-
-    color:#0077b6;
-
+.project-title{
+    color:var(--secondary);
+    font-size:24px;
+    margin-bottom:12px;
 }
 
-
-ul{
-
-    padding-left:25px;
-
+.project-list{
+    margin-top:20px;
 }
 
+.project-list li{
+    margin-bottom:9px;
+}
 
+.tag-row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.tag{
+    background:#f1f5f9;
+    color:#334155;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* Timeline */
+
+.timeline{
+    position:relative;
+}
+
+.timeline-item{
+    border-left:4px solid var(--secondary);
+    padding-left:22px;
+    margin-bottom:28px;
+}
+
+.timeline-item h3{
+    color:var(--dark);
+    margin-bottom:6px;
+}
+
+.timeline-item p{
+    color:var(--muted);
+}
+
+/* Articles */
+
+.article-card h3{
+    color:var(--secondary);
+    margin-bottom:10px;
+}
+
+.article-card p{
+    color:var(--muted);
+}
+
+/* Contact */
+
+.contact-box{
+    text-align:center;
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:20px;
+}
+
+.contact-link{
+    padding:12px 18px;
+    border-radius:999px;
+    background:#e8f3ff;
+    color:var(--primary);
+    font-weight:800;
+}
 
 /* Footer */
 
 footer{
-
-    background:#0b3d62;
+    background:#071f35;
     color:white;
     text-align:center;
-    padding:25px;
-
+    padding:28px 20px;
 }
 
+/* Back to top */
 
+.back-top{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:none;
+    background:var(--secondary);
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:var(--shadow);
+    display:none;
+}
 
+.back-top.show{
+    display:block;
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+    .grid-2,
+    .grid-3,
+    .grid-4{
+        grid-template-columns:1fr;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:62px;
+        left:0;
+        right:0;
+        background:white;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:18px 22px;
+        box-shadow:0 18px 35px rgba(15,23,42,.12);
+        display:none;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .hero{
+        min-height:52vh;
+        padding-top:78px;
+    }
+
+    .card{
+        padding:24px;
+    }
+}
+
+@media(max-width:520px){
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .container{
+        padding:55px 16px;
+    }
+}
 </style>
-
 </head>
-
 
 <body>
 
+<header class="hero" id="home">
+    <div class="hero-content">
+        <div class="badge">Enterprise Software • Identity Automation • Access Governance</div>
 
-<header>
+        <h1>Anjani Kolluru</h1>
 
+        <h2>Senior Application Developer</h2>
 
-<div class="hero">
+        <p>
+            Building secure enterprise applications, identity automation frameworks,
+            and scalable software systems that strengthen access governance,
+            compliance, audit readiness, and business-critical operations.
+        </p>
 
-<h1>Anjani Kolluru</h1>
-
-<h2>
-Senior Application Developer
-</h2>
-
-
-<p>
-
-Building scalable enterprise applications,
-identity automation solutions,
-and secure software systems.
-
-</p>
-
-
-<a class="btn" href="#projects">
-View Projects
-</a>
-
-
-<a class="btn" href="https://github.com/anjanik4" target="_blank">
-GitHub
-</a>
-
-
-</div>
-
-
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Featured Work</a>
+            <a class="btn btn-secondary" href="https://github.com/anjanik4" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        </div>
+    </div>
 </header>
 
-
-
-
 <nav>
+    <div class="nav-inner">
+        <a href="#home" class="logo">Anjani Kolluru</a>
 
-<a href="#about">About</a>
+        <button class="menu-btn" id="menuBtn">Menu</button>
 
-<a href="#skills">Skills</a>
-
-<a href="#projects">Projects</a>
-
-<a href="#articles">Articles</a>
-
-<a href="#contact">Contact</a>
-
-
+        <div class="nav-links" id="navLinks">
+            <a href="#about">About</a>
+            <a href="#impact">Impact</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#articles">Articles</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
 </nav>
 
-
-
-
-<div class="container">
-
-
-
-<section id="about">
-
-<h2 class="title">
-About Me
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-I am a Full Stack Developer with 8+ years of experience designing,
-developing, and supporting enterprise applications using Microsoft
-technologies and modern frontend frameworks.
-
-</p>
-
-
-<p>
-
-My expertise includes C#, .NET Core, ASP.NET Web API,
-SQL Server, React, Angular, REST APIs, enterprise integration,
-and identity automation solutions.
-
-</p>
-
-
-<p>
-
-I enjoy creating secure, scalable, and reliable software solutions
-that solve complex business problems.
-
-</p>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section id="skills">
-
-
-<h2 class="title">
-Technical Skills
-</h2>
-
-
-<div class="card skills">
-
-
-<div class="skill">C#</div>
-
-<div class="skill">.NET Core</div>
-
-<div class="skill">ASP.NET Web API</div>
-
-<div class="skill">SQL Server</div>
-
-<div class="skill">SSIS</div>
-
-<div class="skill">React</div>
-
-<div class="skill">Angular</div>
-
-<div class="skill">JavaScript</div>
-
-<div class="skill">Azure</div>
-
-<div class="skill">Active Directory</div>
-
-<div class="skill">LDAP</div>
-
-<div class="skill">REST APIs</div>
-
-<div class="skill">IAM Automation</div>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section id="projects">
-
-
-<h2 class="title">
-Featured Project
-</h2>
-
-
-<div class="card project">
-
-
-<h3>
-Identity Reconciliation Automation Framework
-</h3>
-
-
-<p>
-
-Designed and implemented an enterprise identity automation framework
-to improve user lifecycle management and application access governance.
-
-</p>
-
-
-<ul>
-
-<li>
-Active Directory integration
-</li>
-
-
-<li>
-SQL Server and SSIS based automation
-</li>
-
-
-<li>
-Identity reconciliation across 35 applications
-</li>
-
-
-<li>
-Automated employee deactivation workflow
-</li>
-
-
-<li>
-Improved security and audit compliance
-</li>
-
-
-</ul>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section id="articles">
-
-
-<h2 class="title">
-Articles
-</h2>
-
-
-<div class="card">
-
-
-<h3>
-Closing the Identity Lifecycle Gap
-</h3>
-
-
-<p>
-
-Automating application access revocation after employee offboarding
-using identity reconciliation principles.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<section>
-
-
-<h2 class="title">
-Education & Certification
-</h2>
-
-
-<div class="card">
-
-
-<p>
-<strong>
-Master of Science in Computer Science
-</strong>
-</p>
-
-
-<br>
-
-
-<p>
-<strong>
-Microsoft Certified: Azure AI Fundamentals
-</strong>
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<section id="contact">
-
-
-<h2 class="title">
-Connect
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-GitHub:
-<a href="https://github.com/anjanik4" target="_blank">
-github.com/anjanik4
-</a>
-
-</p>
-
-
-<br>
-
-
-<p>
-
-LinkedIn:
-<a href="https://www.linkedin.com/in/anjani-kolluru" target="_blank">
-linkedin.com/in/anjani-kolluru
-</a>
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-</div>
-
-
+<main class="container">
+
+    <section id="about">
+        <div class="section-heading">
+            <span>Professional Profile</span>
+            <h2>About Me</h2>
+            <p>
+                A modern enterprise technology profile focused on measurable contribution,
+                technical leadership, security, automation, and scalable application development.
+            </p>
+        </div>
+
+        <div class="card about-text">
+            <p>
+                I am a <span class="highlight">Senior Application Developer and Full Stack Engineer</span>
+                with 8+ years of experience designing, developing, and supporting enterprise-grade
+                software solutions across identity management, application security, automation,
+                and business-critical technology platforms.
+            </p>
+
+            <p>
+                My technical expertise includes <span class="highlight">C#, .NET Core, ASP.NET Web API,
+                SQL Server, SSIS, React, Angular, REST APIs, Azure, Active Directory, LDAP, and
+                enterprise integration technologies</span>. I specialize in building secure,
+                maintainable, and scalable applications that support complex business workflows.
+            </p>
+
+            <p>
+                I have contributed to high-impact identity automation and access governance
+                initiatives, including reconciliation frameworks, employee lifecycle automation,
+                and application access control solutions supporting security, compliance,
+                audit readiness, and operational efficiency across large enterprise environments.
+            </p>
+
+            <p>
+                My professional focus is on delivering original, practical, and measurable
+                technology solutions that reduce manual effort, strengthen governance,
+                improve operational reliability, and solve complex enterprise challenges.
+            </p>
+        </div>
+    </section>
+
+    <section id="impact">
+        <div class="section-heading">
+            <span>Enterprise Contribution</span>
+            <h2>Impact Highlights</h2>
+            <p>
+                Key areas of contribution across identity automation, access governance,
+                enterprise integrations, and secure software delivery.
+            </p>
+        </div>
+
+        <div class="grid grid-4">
+            <div class="card metric">
+                <h3>8+</h3>
+                <p>Years of Application Development Experience</p>
+            </div>
+
+            <div class="card metric">
+                <h3>35</h3>
+                <p>Applications Supported in Identity Reconciliation</p>
+            </div>
+
+            <div class="card metric">
+                <h3>IAM</h3>
+                <p>Identity and Access Governance Automation</p>
+            </div>
+
+            <div class="card metric">
+                <h3>Full Stack</h3>
+                <p>.NET, SQL Server, React, Angular, Azure</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-heading">
+            <span>Technical Expertise</span>
+            <h2>Core Skills</h2>
+            <p>
+                Technologies and platforms used to build secure, scalable, and enterprise-ready systems.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="skills">
+                <div class="skill">C#</div>
+                <div class="skill">.NET Core</div>
+                <div class="skill">ASP.NET Web API</div>
+                <div class="skill">SQL Server</div>
+                <div class="skill">SSIS</div>
+                <div class="skill">React</div>
+                <div class="skill">Angular</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">TypeScript</div>
+                <div class="skill">Azure</div>
+                <div class="skill">Active Directory</div>
+                <div class="skill">LDAP</div>
+                <div class="skill">REST APIs</div>
+                <div class="skill">IAM Automation</div>
+                <div class="skill">Access Governance</div>
+                <div class="skill">Enterprise Integration</div>
+                <div class="skill">Audit Compliance</div>
+                <div class="skill">Application Security</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-heading">
+            <span>Featured Work</span>
+            <h2>Identity Reconciliation Automation Framework</h2>
+            <p>
+                A business-critical identity automation solution designed to improve user lifecycle
+                management and application access governance.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3 class="project-title">Enterprise Identity Reconciliation and Access Governance Automation</h3>
+
+            <p>
+                Designed and implemented an enterprise identity automation framework to identify,
+                reconcile, and support access governance across multiple internal applications.
+                The solution improved visibility into user access, strengthened deactivation workflows,
+                and supported audit and compliance requirements.
+            </p>
+
+            <ul class="project-list">
+                <li>Integrated identity data with Active Directory and LDAP-based enterprise systems.</li>
+                <li>Built SQL Server and SSIS-driven automation workflows for reconciliation and reporting.</li>
+                <li>Supported identity reconciliation across 35 enterprise applications.</li>
+                <li>Improved employee offboarding and access deactivation processes.</li>
+                <li>Reduced manual validation effort and improved operational consistency.</li>
+                <li>Strengthened security controls, audit readiness, and access governance.</li>
+            </ul>
+
+            <div class="tag-row">
+                <span class="tag">Identity Automation</span>
+                <span class="tag">Access Governance</span>
+                <span class="tag">SQL Server</span>
+                <span class="tag">SSIS</span>
+                <span class="tag">Active Directory</span>
+                <span class="tag">Compliance</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-heading">
+            <span>Professional Strength</span>
+            <h2>Areas of Expertise</h2>
+        </div>
+
+        <div class="grid grid-3">
+            <div class="card">
+                <h3>Enterprise Application Development</h3>
+                <p>
+                    Development of scalable business applications using .NET, Web APIs,
+                    SQL Server, React, Angular, and modern frontend technologies.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Identity and Access Automation</h3>
+                <p>
+                    Automation of identity lifecycle processes, access reconciliation,
+                    user deactivation workflows, and governance-driven reporting.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Secure System Design</h3>
+                <p>
+                    Building reliable, maintainable, and secure solutions that support
+                    compliance, audit requirements, and operational continuity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="articles">
+        <div class="section-heading">
+            <span>Thought Leadership</span>
+            <h2>Articles</h2>
+            <p>
+                Topics focused on identity lifecycle automation, access governance,
+                security, and enterprise technology modernization.
+            </p>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card article-card">
+                <h3>Closing the Identity Lifecycle Gap</h3>
+                <p>
+                    How automation can improve application access revocation after employee
+                    offboarding using identity reconciliation principles.
+                </p>
+            </div>
+
+            <div class="card article-card">
+                <h3>Improving Access Governance Through Reconciliation</h3>
+                <p>
+                    A practical approach to reducing manual access reviews, improving visibility,
+                    and strengthening enterprise audit readiness.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-heading">
+            <span>Credentials</span>
+            <h2>Education & Certification</h2>
+        </div>
+
+        <div class="grid grid-2">
+            <div class="card">
+                <h3>Master of Science in Computer Science</h3>
+                <p>
+                    Advanced academic foundation in software engineering, computing systems,
+                    and application development.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Microsoft Certified: Azure AI Fundamentals</h3>
+                <p>
+                    Certification demonstrating foundational knowledge of Microsoft Azure AI
+                    services and cloud-based intelligent application capabilities.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-heading">
+            <span>Connect</span>
+            <h2>Professional Links</h2>
+            <p>
+                Explore code samples, professional background, and technology contributions.
+            </p>
+        </div>
+
+        <div class="card contact-box">
+            <h3>Let’s Connect</h3>
+            <p>
+                Senior Application Developer focused on secure enterprise software,
+                identity automation, and scalable full-stack systems.
+            </p>
+
+            <div class="contact-links">
+                <a class="contact-link" href="https://github.com/anjanik4" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a class="contact-link" href="https://www.linkedin.com/in/anjani-kolluru" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
 
 <footer>
-
-© 2026 Anjani Kolluru | Senior Application Developer
-
+    © 2026 Anjani Kolluru | Senior Application Developer
 </footer>
 
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+const backTop = document.getElementById("backTop");
+const links = document.querySelectorAll(".nav-links a");
+const sections = document.querySelectorAll("section, header");
+
+menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+});
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+    });
+});
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 500){
+        backTop.classList.add("show");
+    } else {
+        backTop.classList.remove("show");
+    }
+});
+
+backTop.addEventListener("click", () => {
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+});
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            const id = entry.target.getAttribute("id");
+
+            links.forEach(link => {
+                link.classList.remove("active");
+
+                if(link.getAttribute("href") === "#" + id){
+                    link.classList.add("active");
+                }
+            });
+        }
+    });
+}, {
+    threshold:.35
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+</script>
 
 </body>
-
 </html>
-```
