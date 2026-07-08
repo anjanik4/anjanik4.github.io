@@ -13,7 +13,6 @@
     --primary:#0a2540;
     --secondary:#0066cc;
     --accent:#00a6d6;
-    --gold:#c99700;
     --dark:#111827;
     --text:#243447;
     --muted:#64748b;
@@ -54,17 +53,16 @@ li{
 /* HERO */
 
 .hero{
-    min-height:56vh;
+    min-height:54vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     color:white;
-    padding:85px 20px 58px;
+    padding:78px 20px 52px;
     background:
         radial-gradient(circle at top left, rgba(0,166,214,.35), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(201,151,0,.18), transparent 30%),
-        linear-gradient(135deg, #06192e, #0a2540 48%, #0066cc);
+        linear-gradient(135deg, #06192e, #0a2540 52%, #0066cc);
     position:relative;
     overflow:hidden;
 }
@@ -72,8 +70,8 @@ li{
 .hero::after{
     content:"";
     position:absolute;
-    width:360px;
-    height:360px;
+    width:340px;
+    height:340px;
     border-radius:50%;
     background:rgba(255,255,255,.07);
     right:-120px;
@@ -279,18 +277,13 @@ section{
     font-weight:900;
 }
 
-.gold{
-    color:var(--gold);
-    font-weight:900;
-}
-
 /* ABOUT */
 
 .about-text p{
     margin-bottom:18px;
 }
 
-/* METRICS */
+/* IMPACT */
 
 .metric{
     text-align:center;
@@ -322,40 +315,6 @@ section{
     color:var(--muted);
 }
 
-/* CONTRIBUTIONS */
-
-.contribution-title{
-    color:var(--secondary);
-    font-size:23px;
-    margin-bottom:10px;
-}
-
-.contribution-subtitle{
-    color:var(--muted);
-    font-weight:800;
-    margin-bottom:16px;
-}
-
-.contribution-list{
-    margin-top:18px;
-}
-
-.tag-row{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.tag{
-    background:#f1f5f9;
-    color:#334155;
-    padding:7px 12px;
-    border-radius:999px;
-    font-size:13px;
-    font-weight:800;
-}
-
 /* SKILLS */
 
 .skill-category h3{
@@ -379,12 +338,11 @@ section{
     font-size:14px;
 }
 
-/* TIMELINE */
+/* EXPERIENCE */
 
 .timeline-item{
     border-left:4px solid var(--secondary);
     padding-left:24px;
-    margin-bottom:28px;
 }
 
 .timeline-item h3{
@@ -396,6 +354,10 @@ section{
     color:var(--secondary);
     font-weight:900;
     margin-bottom:12px;
+}
+
+.experience-list{
+    margin-top:18px;
 }
 
 /* CONTACT */
@@ -480,8 +442,8 @@ footer{
     }
 
     .hero{
-        min-height:52vh;
-        padding-top:78px;
+        min-height:50vh;
+        padding-top:72px;
     }
 
     .card{
@@ -526,7 +488,7 @@ footer{
 
         <div class="hero-actions">
             <a class="btn btn-primary" href="#impact">View Professional Impact</a>
-            <a class="btn btn-secondary" href="#contributions">Technology Contributions</a>
+            <a class="btn btn-secondary" href="#evidence">Evidence Profile</a>
         </div>
     </div>
 </header>
@@ -541,10 +503,9 @@ footer{
             <a href="#about">About</a>
             <a href="#impact">Impact</a>
             <a href="#evidence">Evidence</a>
-            <a href="#contributions">Contributions</a>
             <a href="#skills">Skills</a>
-            <a href="#experience">Experience</a>
             <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
         </div>
     </div>
@@ -557,8 +518,8 @@ footer{
             <span>Professional Profile</span>
             <h2>Senior Application Developer with Enterprise Software Expertise</h2>
             <p>
-                A professional profile focused on technical contribution, scalable software design,
-                secure application development, automation, accessibility, and enterprise delivery.
+                A focused profile highlighting scalable software design, secure application
+                development, automation, accessibility, and enterprise technology delivery.
             </p>
         </div>
 
@@ -590,12 +551,6 @@ footer{
                 Active Directory integration, identity automation, and SQL Server-based
                 enterprise data workflows.
             </p>
-
-            <p>
-                I bring a collaborative and delivery-focused approach across Agile and
-                Waterfall environments, with experience working closely with product owners,
-                QA teams, DevOps teams, business users, and technical stakeholders.
-            </p>
         </div>
     </section>
 
@@ -617,7 +572,7 @@ footer{
 
             <div class="card metric">
                 <h3>Full Stack</h3>
-                <p>Enterprise Application Development Across Frontend, Backend, and Database Layers</p>
+                <p>Frontend, Backend, Database, API, and Integration Development</p>
             </div>
 
             <div class="card metric">
@@ -683,8 +638,8 @@ footer{
                 <h3>Accessibility and Multilingual Delivery</h3>
                 <p>
                     Developed responsive and accessible React and Material UI components
-                    supporting WCAG-aligned interfaces and multilingual experiences across
-                    web and mobile platforms.
+                    supporting accessibility-focused interfaces and multilingual experiences
+                    across web and mobile platforms.
                 </p>
             </div>
 
@@ -696,145 +651,6 @@ footer{
                     and performance improvements for business-critical applications.
                 </p>
             </div>
-        </div>
-    </section>
-
-    <section id="contributions">
-        <div class="section-heading">
-            <span>Selected Work</span>
-            <h2>Selected Enterprise Technology Contributions</h2>
-            <p>
-                Selected work demonstrating technical depth, secure software delivery,
-                automation, accessibility, database design, API development, and scalable
-                enterprise application engineering.
-            </p>
-        </div>
-
-        <div class="grid grid-2">
-
-            <div class="card">
-                <h3 class="contribution-title">Digital Licensing and Application Workflow Platform</h3>
-                <p class="contribution-subtitle">Enterprise Workflow System | Full Stack Application Development</p>
-
-                <p>
-                    Contributed to the development and maintenance of a large-scale digital
-                    licensing and workflow platform used to support online application submission,
-                    renewal, status tracking, internal review, payment tracking, approval, and
-                    denial processes.
-                </p>
-
-                <ul class="contribution-list">
-                    <li>Developed and maintained responsive UI components using React.js and Material UI.</li>
-                    <li>Supported accessibility-focused interfaces across web and mobile platforms.</li>
-                    <li>Implemented multilingual user experiences supporting 12 languages.</li>
-                    <li>Built and integrated .NET Core RESTful APIs for business logic and data communication.</li>
-                    <li>Supported workflows for new submissions, renewals, status tracking, reviews, edits, payments, approvals, and denials.</li>
-                    <li>Collaborated with Product Owners, QA, DevOps, and business stakeholders in Agile delivery cycles.</li>
-                    <li>Supported QA and Production deployments through Azure DevOps CI/CD pipelines.</li>
-                    <li>Performed production support and incident resolution for critical application issues.</li>
-                </ul>
-
-                <div class="tag-row">
-                    <span class="tag">Enterprise Platform</span>
-                    <span class="tag">Digital Workflows</span>
-                    <span class="tag">React</span>
-                    <span class="tag">Material UI</span>
-                    <span class="tag">.NET Core</span>
-                    <span class="tag">REST APIs</span>
-                    <span class="tag">Accessibility</span>
-                    <span class="tag">Azure DevOps</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="contribution-title">Transportation Operations Management Platform</h3>
-                <p class="contribution-subtitle">Enterprise Operations System | Application Modernization</p>
-
-                <p>
-                    Worked on a transportation-domain enterprise application supporting
-                    operational planning, execution, monitoring, and workflow management.
-                    The application assists with organizing and tracking operational activities
-                    through a structured digital platform.
-                </p>
-
-                <ul class="contribution-list">
-                    <li>Participated in SDLC phases including analysis, design, development, testing, and maintenance.</li>
-                    <li>Developed and supported modules using ASP.NET MVC, .NET Core, Web API, and React.js.</li>
-                    <li>Designed and optimized SQL Server schemas, stored procedures, and queries.</li>
-                    <li>Supported backend services and frontend user experiences for operational workflows.</li>
-                    <li>Created and maintained technical documentation for APIs, database schema, and deployment processes.</li>
-                    <li>Contributed to performance and scalability improvements for stronger application reliability.</li>
-                </ul>
-
-                <div class="tag-row">
-                    <span class="tag">Enterprise Systems</span>
-                    <span class="tag">Operations Platform</span>
-                    <span class="tag">ASP.NET MVC</span>
-                    <span class="tag">.NET Core</span>
-                    <span class="tag">SQL Server</span>
-                    <span class="tag">React</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="contribution-title">Enterprise User Deactivation Automation Framework</h3>
-                <p class="contribution-subtitle">Identity Automation | Active Directory Integration</p>
-
-                <p>
-                    Built and supported an SSIS-based automation framework that disables
-                    users from applications when they are disabled in Active Directory.
-                    The solution centralized deactivation and reduced manual intervention
-                    in access removal workflows.
-                </p>
-
-                <ul class="contribution-list">
-                    <li>Developed SSIS packages to automate user deactivation across applications.</li>
-                    <li>Integrated Active Directory data using ADSI Linked Server and T-SQL queries.</li>
-                    <li>Used SQL Server stored procedures and complex joins for identity data processing.</li>
-                    <li>Improved access governance by streamlining employee deactivation workflows.</li>
-                    <li>Reduced dependency on manual deactivation and repetitive operational tasks.</li>
-                    <li>Supported security, compliance, and audit-readiness objectives.</li>
-                </ul>
-
-                <div class="tag-row">
-                    <span class="tag">SSIS</span>
-                    <span class="tag">SQL Server</span>
-                    <span class="tag">Active Directory</span>
-                    <span class="tag">T-SQL</span>
-                    <span class="tag">Identity Automation</span>
-                    <span class="tag">Access Governance</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3 class="contribution-title">Secure Web Application Enhancement Initiative</h3>
-                <p class="contribution-subtitle">Secure Web Forms | Sensitive Data Protection</p>
-
-                <p>
-                    Contributed to application security improvements by implementing
-                    reCAPTCHA protection across multiple web forms and supporting efforts
-                    to remove sensitive information from legacy database systems.
-                </p>
-
-                <ul class="contribution-list">
-                    <li>Implemented reCAPTCHA security measures in multiple web forms.</li>
-                    <li>Enhanced protection against automated and abusive form submissions.</li>
-                    <li>Worked on removing sensitive information from a legacy database application.</li>
-                    <li>Supported secure application practices and data protection objectives.</li>
-                    <li>Participated in code reviews, unit testing, and integration testing.</li>
-                    <li>Used NUnit and Jest within a test-driven development environment.</li>
-                </ul>
-
-                <div class="tag-row">
-                    <span class="tag">Application Security</span>
-                    <span class="tag">reCAPTCHA</span>
-                    <span class="tag">Data Protection</span>
-                    <span class="tag">NUnit</span>
-                    <span class="tag">Jest</span>
-                    <span class="tag">TDD</span>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -917,81 +733,6 @@ footer{
         </div>
     </section>
 
-    <section id="experience">
-        <div class="section-heading">
-            <span>Work History</span>
-            <h2>Professional Experience</h2>
-            <p>
-                Current professional experience supporting enterprise applications,
-                digital workflow systems, automation, production environments,
-                secure web platforms, and database-driven solutions.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="timeline-item">
-                <h3>Application Developer</h3>
-                <p class="date">April 2019 - Current</p>
-
-                <p>
-                    Develop, maintain, and support enterprise applications using Microsoft
-                    .NET technologies, React, Angular, SQL Server, Azure DevOps, SSIS,
-                    and enterprise integration tools.
-                </p>
-
-                <ul class="contribution-list">
-                    <li>Developed responsive and accessible UI components using React.js and Material UI.</li>
-                    <li>Implemented .NET Core RESTful APIs for frontend-backend communication.</li>
-                    <li>Designed SQL Server schemas, stored procedures, and optimized queries for high-performance data operations.</li>
-                    <li>Collaborated with Agile teams through sprint planning, development, testing, code reviews, and retrospectives.</li>
-                    <li>Supported deployments across QA and Production environments using Azure DevOps CI/CD pipelines.</li>
-                    <li>Performed production support, troubleshooting, and incident resolution.</li>
-                    <li>Participated in code reviews, unit testing, integration testing, and technical documentation.</li>
-                    <li>Worked with Agile and Waterfall methodologies based on project delivery needs.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="articles">
-        <div class="section-heading">
-            <span>Technical Writing</span>
-            <h2>Articles & Knowledge Contributions</h2>
-            <p>
-                Areas for professional writing, technical documentation, presentations,
-                and knowledge-sharing contributions.
-            </p>
-        </div>
-
-        <div class="grid grid-3">
-            <div class="card evidence-card">
-                <h3>Identity Automation and Access Deactivation</h3>
-                <p>
-                    Technical writing focused on how Active Directory, SQL Server,
-                    and SSIS can centralize application user deactivation and reduce
-                    manual access removal effort.
-                </p>
-            </div>
-
-            <div class="card evidence-card">
-                <h3>Accessible Enterprise Web Applications</h3>
-                <p>
-                    Technical writing focused on how React, Material UI, accessibility
-                    practices, responsive design, and multilingual support improve
-                    digital application experiences.
-                </p>
-            </div>
-
-            <div class="card evidence-card">
-                <h3>Secure Web Forms in Enterprise Applications</h3>
-                <p>
-                    Technical writing focused on reCAPTCHA, sensitive data handling,
-                    form security, production reliability, and secure software delivery practices.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <section id="education">
         <div class="section-heading">
             <span>Education & Certification</span>
@@ -1013,6 +754,41 @@ footer{
                     Certification demonstrating foundational knowledge of Microsoft Azure AI
                     services and cloud-based intelligent application capabilities.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-heading">
+            <span>Professional Experience</span>
+            <h2>Application Development Experience</h2>
+            <p>
+                Professional experience supporting enterprise applications, digital workflow systems,
+                automation, production environments, secure web platforms, and database-driven solutions.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="timeline-item">
+                <h3>Application Developer</h3>
+                <p class="date">April 2019 - Current</p>
+
+                <p>
+                    Develop, maintain, and support enterprise applications using Microsoft
+                    .NET technologies, React, Angular, SQL Server, Azure DevOps, SSIS,
+                    and enterprise integration tools.
+                </p>
+
+                <ul class="experience-list">
+                    <li>Developed responsive and accessible UI components using React.js and Material UI.</li>
+                    <li>Implemented .NET Core RESTful APIs for frontend-backend communication.</li>
+                    <li>Designed SQL Server schemas, stored procedures, and optimized queries for high-performance data operations.</li>
+                    <li>Collaborated with Agile teams through sprint planning, development, testing, code reviews, and retrospectives.</li>
+                    <li>Supported deployments across QA and Production environments using Azure DevOps CI/CD pipelines.</li>
+                    <li>Performed production support, troubleshooting, and incident resolution.</li>
+                    <li>Participated in code reviews, unit testing, integration testing, and technical documentation.</li>
+                    <li>Worked with Agile and Waterfall methodologies based on project delivery needs.</li>
+                </ul>
             </div>
         </div>
     </section>
