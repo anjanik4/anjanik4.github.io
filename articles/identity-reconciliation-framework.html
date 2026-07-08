@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Closing the Identity Lifecycle Gap | Anjani Kolluru</title>
+
+<meta name="description" content="A technical article by Anjani Kolluru on automating application access revocation after employee offboarding using Active Directory, SQL Server, SSIS, and identity reconciliation." />
+
+<style>
+:root{
+    --primary:#0a2540;
+    --secondary:#0066cc;
+    --accent:#00a6d6;
+    --dark:#111827;
+    --text:#243447;
+    --muted:#64748b;
+    --bg:#f5f8fc;
+    --card:#ffffff;
+    --border:#dbe3ee;
+    --soft:#e8f3ff;
+    --shadow:0 18px 45px rgba(15,23,42,.10);
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Segoe UI", Arial, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+}
+
+a{
+    color:var(--secondary);
+    text-decoration:none;
+    font-weight:800;
+}
+
+ul, ol{
+    padding-left:24px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.article-hero{
+    color:white;
+    background:
+        radial-gradient(circle at top left, rgba(0,166,214,.35), transparent 35%),
+        linear-gradient(135deg, #06192e, #0a2540 52%, #0066cc);
+    padding:74px 20px 58px;
+}
+
+.article-hero-inner{
+    max-width:1050px;
+    margin:auto;
+}
+
+.back-link{
+    display:inline-block;
+    color:#dbeafe;
+    margin-bottom:24px;
+    font-weight:800;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.article-hero h1{
+    max-width:980px;
+    font-size:clamp(34px, 5vw, 58px);
+    line-height:1.12;
+    margin-bottom:18px;
+}
+
+.subtitle{
+    max-width:880px;
+    color:#eef6ff;
+    font-size:19px;
+    margin-bottom:22px;
+}
+
+.byline{
+    color:#dbeafe;
+    font-weight:700;
+}
+
+.container{
+    max-width:1050px;
+    margin:auto;
+    padding:58px 20px;
+}
+
+.summary-box{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:30px;
+    box-shadow:var(--shadow);
+    margin-bottom:34px;
+}
+
+.summary-box h2{
+    color:var(--dark);
+    margin-bottom:10px;
+}
+
+.meta-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+    margin:26px 0 42px;
+}
+
+.meta-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 12px 32px rgba(15,23,42,.07);
+}
+
+.meta-card span{
+    display:block;
+    color:var(--muted);
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:6px;
+}
+
+.meta-card strong{
+    color:var(--secondary);
+    font-size:20px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.tag{
+    background:var(--soft);
+    color:var(--primary);
+    border:1px solid #cbe7ff;
+    padding:8px 13px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.article-layout{
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:34px;
+    align-items:start;
+}
+
+.toc{
+    position:sticky;
+    top:24px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 12px 32px rgba(15,23,42,.07);
+}
+
+.toc h3{
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.toc a{
+    display:block;
+    color:var(--muted);
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.article-content{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:38px;
+    box-shadow:var(--shadow);
+}
+
+.article-content h2{
+    color:var(--dark);
+    font-size:30px;
+    margin:34px 0 14px;
+}
+
+.article-content h2:first-child{
+    margin-top:0;
+}
+
+.article-content h3{
+    color:var(--primary);
+    font-size:22px;
+    margin:24px 0 10px;
+}
+
+.article-content p{
+    margin-bottom:17px;
+}
+
+.callout{
+    background:#f8fbff;
+    border-left:5px solid var(--secondary);
+    padding:20px;
+    border-radius:14px;
+    margin:24px 0;
+}
+
+.figure{
+    background:#f8fbff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:26px;
+    margin:28px 0;
+}
+
+.figure-title{
+    text-align:center;
+    color:var(--dark);
+    font-weight:900;
+    margin-bottom:22px;
+}
+
+.diagram{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+}
+
+.diagram-box{
+    background:white;
+    border:2px solid var(--secondary);
+    border-radius:16px;
+    padding:15px 18px;
+    min-width:250px;
+    text-align:center;
+    box-shadow:0 10px 24px rgba(15,23,42,.08);
+}
+
+.diagram-box strong{
+    display:block;
+    color:var(--primary);
+}
+
+.diagram-box span{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.arrow{
+    color:var(--secondary);
+    font-size:28px;
+    font-weight:900;
+    line-height:1;
+}
+
+.app-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+    width:100%;
+    margin-top:4px;
+}
+
+.small-box{
+    min-width:auto;
+    padding:14px 10px;
+}
+
+.caption{
+    color:var(--muted);
+    font-size:14px;
+    text-align:center;
+    margin-top:18px;
+    font-style:italic;
+}
+
+.author-box{
+    background:#f8fbff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:24px;
+    margin-top:32px;
+}
+
+.author-box h3{
+    margin-top:0;
+}
+
+.footer{
+    background:#06192e;
+    color:white;
+    text-align:center;
+    padding:26px 20px;
+    margin-top:40px;
+}
+
+.footer a{
+    color:#dbeafe;
+}
+
+@media(max-width:900px){
+    .meta-grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+    .article-layout{
+        grid-template-columns:1fr;
+    }
+
+    .toc{
+        position:static;
+    }
+
+    .article-content{
+        padding:28px;
+    }
+
+    .app-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:520px){
+    .meta-grid{
+        grid-template-columns:1fr;
+    }
+
+    .article-hero{
+        padding-top:54px;
+    }
+
+    .article-content{
+        padding:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="article-hero">
+    <div class="article-hero-inner">
+        <a class="back-link" href="../index.html">← Back to Home</a>
+
+        <div class="badge">Technical Article • Identity Automation • Application Security</div>
+
+        <h1>Closing the Identity Lifecycle Gap: Automating Application Access Revocation After Employee Offboarding</h1>
+
+        <p class="subtitle">
+            A technical case study on synchronizing enterprise directory status with application-level access controls
+            using SQL Server, SSIS, Active Directory integration, and scheduled automation.
+        </p>
+
+        <p class="byline">
+            By Anjani Kolluru · Senior Application Developer | Full Stack .NET Development | Identity Automation | Application Security
+        </p>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="summary-box">
+        <h2>Article Summary</h2>
+        <p>
+            In large organizations, employee offboarding often creates a gap between directory-level account
+            deactivation and application-level access removal. This article describes an automated identity
+            reconciliation framework designed to identify inactive users, compare enterprise identity status
+            with application user records, and revoke access consistently across multiple applications.
+        </p>
+
+        <div class="tags">
+            <span class="tag">SQL Server</span>
+            <span class="tag">SSIS</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">LDAP / ADSI</span>
+            <span class="tag">Identity Governance</span>
+            <span class="tag">Workflow Automation</span>
+            <span class="tag">Application Security</span>
+        </div>
+    </section>
+
+    <section class="meta-grid">
+        <div class="meta-card">
+            <span>Role</span>
+            <strong>Solution Developer</strong>
+        </div>
+
+        <div class="meta-card">
+            <span>Scope</span>
+            <strong>35 Applications</strong>
+        </div>
+
+        <div class="meta-card">
+            <span>Processing</span>
+            <strong>Scheduled Workflow</strong>
+        </div>
+
+        <div class="meta-card">
+            <span>Execution</span>
+            <strong>~30 Seconds</strong>
+        </div>
+    </section>
+
+    <div class="article-layout">
+        <aside class="toc">
+            <h3>Contents</h3>
+            <a href="#introduction">Introduction</a>
+            <a href="#author">About the Author</a>
+            <a href="#problem">The Business Problem</a>
+            <a href="#approach">Solution Approach</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#implementation">Technical Implementation</a>
+            <a href="#challenges">Integration Challenges</a>
+            <a href="#impact">Results and Impact</a>
+            <a href="#lessons">Lessons Learned</a>
+            <a href="#conclusion">Conclusion</a>
+        </aside>
+
+        <article class="article-content">
+
+            <h2 id="introduction">Introduction</h2>
+
+            <p>
+                In large organizations, managing employee access is a complex process that extends beyond
+                disabling a user account in a directory system.
+            </p>
+
+            <p>
+                When an employee leaves an organization, the standard practice is to disable their account
+                in an enterprise identity system such as Active Directory. However, many enterprise applications
+                maintain independent user databases and authorization mechanisms. Without proper synchronization,
+                a user can become inactive in the corporate directory while still retaining access to one or more
+                applications.
+            </p>
+
+            <div class="callout">
+                <strong>Identity lifecycle gap:</strong> the employee's enterprise identity status and
+                application access status are no longer aligned.
+            </div>
+
+            <p>
+                This article discusses the design and implementation approach behind an automated identity
+                reconciliation framework that helps organizations close this gap by synchronizing directory
+                status with application-level access controls.
+            </p>
+
+            <h2 id="author">About the Author</h2>
+
+            <p>
+                Anjani Kolluru is a Senior Application Developer with 8+ years of experience designing and
+                implementing business software solutions, application integrations, and automation frameworks.
+            </p>
+
+            <p>
+                His areas of interest include application security, identity lifecycle management, system
+                integration, database-driven solutions, and improving operational efficiency through automation.
+            </p>
+
+            <p>
+                Throughout his career, Anjani has worked on solutions addressing complex technology challenges,
+                including access governance automation, application integration, and reliability improvements
+                for large-scale software systems.
+            </p>
+
+            <h2 id="problem">The Business Problem</h2>
+
+            <p>
+                Many organizations operate a large number of applications that were built independently over time.
+                These applications often have:
+            </p>
+
+            <ul>
+                <li>Separate databases.</li>
+                <li>Different user management approaches.</li>
+                <li>Different access control models.</li>
+                <li>Limited integration with enterprise identity systems.</li>
+            </ul>
+
+            <p>A typical employee offboarding workflow may involve:</p>
+
+            <ol>
+                <li>An employee leaves the organization.</li>
+                <li>Their Active Directory account is disabled.</li>
+                <li>Application teams are notified manually.</li>
+                <li>Access removal requests are created.</li>
+                <li>Different teams process changes independently.</li>
+                <li>Application access may remain active during the transition period.</li>
+            </ol>
+
+            <p>This approach creates several challenges:</p>
+
+            <ul>
+                <li>Delayed access removal.</li>
+                <li>Increased security risk.</li>
+                <li>Manual dependency across multiple teams.</li>
+                <li>Inconsistent execution.</li>
+                <li>Additional effort during security audits.</li>
+            </ul>
+
+            <p>
+                The organization needed a solution that could automatically identify inactive users and remove
+                their application access without relying on manual coordination.
+            </p>
+
+            <h2 id="approach">Identifying the Solution Approach</h2>
+
+            <p>
+                The objective was to design an automated identity reconciliation framework that could:
+            </p>
+
+            <ul>
+                <li>Retrieve disabled user information from Active Directory.</li>
+                <li>Compare enterprise identity status with application user records.</li>
+                <li>Update or remove application access automatically.</li>
+                <li>Support multiple applications with different database structures.</li>
+                <li>Execute on a scheduled basis.</li>
+            </ul>
+
+            <p>The solution was designed using:</p>
+
+            <ul>
+                <li>Microsoft Active Directory integration.</li>
+                <li>SQL Server.</li>
+                <li>SQL Server Integration Services, also known as SSIS.</li>
+                <li>Automated scheduled processing.</li>
+            </ul>
+
+            <h2 id="architecture">Solution Architecture</h2>
+
+            <p>
+                The architecture followed a simple but effective identity reconciliation model.
+                Active Directory served as the source of truth for employee account status.
+                The automation framework retrieved disabled users, compared identity information with
+                application records, and performed the required access changes.
+            </p>
+
+            <figure class="figure">
+                <div class="figure-title">Identity Reconciliation Architecture</div>
+
+                <div class="diagram">
+                    <div class="diagram-box">
+                        <strong>Enterprise Identity Source</strong>
+                        <span>Active Directory · Disabled Users · User Status</span>
+                    </div>
+
+                    <div class="arrow">↓</div>
+                    <div class="tag">LDAP / ADSI Integration</div>
+                    <div class="arrow">↓</div>
+
+                    <div class="diagram-box">
+                        <strong>Identity Reconciliation Framework</strong>
+                        <span>SQL Server + SSIS Layer</span>
+                    </div>
+
+                    <div class="arrow">↓</div>
+
+                    <div class="app-row">
+                        <div class="diagram-box small-box">
+                            <strong>Application A</strong>
+                            <span>Database</span>
+                        </div>
+
+                        <div class="diagram-box small-box">
+                            <strong>Application B</strong>
+                            <span>Database</span>
+                        </div>
+
+                        <div class="diagram-box small-box">
+                            <strong>Application C</strong>
+                            <span>Database</span>
+                        </div>
+                    </div>
+
+                    <div class="arrow">↓</div>
+
+                    <div class="diagram-box">
+                        <strong>Automated Access Revocation</strong>
+                        <span>Disable inactive users · Remove access · Maintain audit consistency</span>
+                    </div>
+                </div>
+
+                <figcaption class="caption">
+                    Figure 1: Identity reconciliation architecture connecting enterprise directory status with application-level access controls.
+                </figcaption>
+            </figure>
+
+            <h2 id="implementation">Technical Implementation</h2>
+
+            <h3>Active Directory Integration</h3>
+
+            <p>
+                The solution integrated Active Directory information with SQL Server-based application data.
+                Disabled user accounts were identified based on directory account status and retrieved for
+                reconciliation processing.
+            </p>
+
+            <p>
+                Because directory systems have performance considerations and query limitations, the solution
+                was designed to process identity information carefully rather than executing unrestricted queries.
+            </p>
+
+            <h3>Application Data Reconciliation</h3>
+
+            <p>
+                Each application had its own database structure and user management approach.
+                The reconciliation process compared directory information with application records using
+                identity attributes such as:
+            </p>
+
+            <ul>
+                <li>User ID.</li>
+                <li>First name.</li>
+                <li>Last name.</li>
+            </ul>
+
+            <p>
+                Once a matching inactive user was identified, the workflow performed the required
+                application-level access update.
+            </p>
+
+            <p>Depending on application requirements, actions included:</p>
+
+            <ul>
+                <li>Updating user status to inactive.</li>
+                <li>Removing user access records.</li>
+                <li>Maintaining audit records.</li>
+            </ul>
+
+            <h3>Supporting Multiple Applications</h3>
+
+            <p>
+                One of the major engineering challenges was supporting applications that were developed
+                independently. Each application could have:
+            </p>
+
+            <ul>
+                <li>Different database connections.</li>
+                <li>Different user tables.</li>
+                <li>Different status fields.</li>
+                <li>Different access removal logic.</li>
+            </ul>
+
+            <p>
+                The framework was designed to support multiple applications while maintaining a consistent
+                identity governance process. The production implementation supported 35 applications, each
+                with independent application data structures.
+            </p>
+
+            <h2 id="challenges">Handling Integration Challenges</h2>
+
+            <h3>Active Directory Query Limitations</h3>
+
+            <p>
+                Directory services have limitations around query size and performance. The solution accounted
+                for these limitations by processing directory information in a controlled manner rather than
+                impacting directory performance.
+            </p>
+
+            <h3>Reliability</h3>
+
+            <p>The workflow included considerations for:</p>
+
+            <ul>
+                <li>Database connectivity.</li>
+                <li>Processing failures.</li>
+                <li>Application-specific exceptions.</li>
+                <li>Logging and traceability.</li>
+            </ul>
+
+            <h3>Scheduled Automation</h3>
+
+            <p>
+                The process was implemented as a scheduled batch workflow, allowing identity reconciliation
+                to happen automatically without depending on manual availability.
+            </p>
+
+            <h2 id="impact">Results and Impact</h2>
+
+            <p>
+                The solution transformed a manual employee offboarding process into an automated identity
+                governance workflow.
+            </p>
+
+            <p>The improvements included:</p>
+
+            <ul>
+                <li>Reduced manual coordination between teams.</li>
+                <li>Faster access revocation.</li>
+                <li>Improved consistency across applications.</li>
+                <li>Reduced risk from inactive users retaining access.</li>
+                <li>Improved security audit readiness.</li>
+            </ul>
+
+            <p>
+                The production workflow completed execution in approximately 30 seconds, replacing a process
+                that previously depended on manual ticket routing and coordination.
+            </p>
+
+            <h2 id="lessons">Lessons Learned</h2>
+
+            <p>
+                Identity management does not end when an account is disabled in Active Directory.
+                In modern application environments, organizations must consider the complete identity lifecycle:
+            </p>
+
+            <ul>
+                <li>Employee onboarding.</li>
+                <li>Access provisioning.</li>
+                <li>Role changes.</li>
+                <li>Employee separation.</li>
+                <li>Application authorization.</li>
+            </ul>
+
+            <h3>1. Directory deactivation is only one part of access management</h3>
+            <p>
+                Applications must also be synchronized with enterprise identity changes.
+            </p>
+
+            <h3>2. Automation improves security consistency</h3>
+            <p>
+                Manual processes introduce delays and variations. Automated controls provide repeatable results.
+            </p>
+
+            <h3>3. Integration requires flexibility</h3>
+            <p>
+                Different applications require different approaches, but a common reconciliation framework
+                can reduce complexity.
+            </p>
+
+            <h3>4. Security improvements often come from connecting existing systems</h3>
+            <p>
+                Many technology challenges can be solved by intelligently integrating systems that already exist.
+            </p>
+
+            <h2 id="conclusion">Conclusion</h2>
+
+            <p>
+                Employee offboarding is a critical security process, but many organizations still struggle with
+                disconnected application access management.
+            </p>
+
+            <p>
+                By designing an automated identity reconciliation framework, organizations can close the gap
+                between enterprise identity systems and application authorization.
+            </p>
+
+            <p>
+                The result is a more secure, reliable, and efficient approach to managing user access throughout
+                the employee lifecycle.
+            </p>
+
+            <div class="author-box">
+                <h3>Connect With Me</h3>
+                <p>
+                    <strong>Anjani Kolluru</strong><br />
+                    Senior Application Developer<br />
+                    Full Stack .NET Development | Identity Automation | Application Security
+                </p>
+
+                <p>
+                    GitHub:
+                    <a href="https://github.com/anjanik4" target="_blank" rel="noopener noreferrer">github.com/anjanik4</a>
+                    <br />
+                    LinkedIn:
+                    <a href="https://www.linkedin.com/in/anjani-kolluru" target="_blank" rel="noopener noreferrer">linkedin.com/in/anjani-kolluru</a>
+                </p>
+
+                <p>
+                    <em>
+                        This article describes a generalized engineering approach. Specific organization names,
+                        application names, internal configurations, and confidential implementation details have been omitted.
+                    </em>
+                </p>
+            </div>
+
+        </article>
+    </div>
+
+</main>
+
+<footer class="footer">
+    © 2026 Anjani Kolluru ·
+    <a href="https://github.com/anjanik4" target="_blank" rel="noopener noreferrer">GitHub</a> ·
+    <a href="https://www.linkedin.com/in/anjani-kolluru" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</footer>
+
+</body>
+</html>
