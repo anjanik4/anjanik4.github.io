@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,87 +11,224 @@
 
 <style>
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+*{
     margin:0;
-    background:#f5f7fa;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f4f7fb;
     color:#222;
+    line-height:1.7;
 }
 
-header {
-    background:#0b3d62;
+
+/* Header */
+
+header{
+
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     color:white;
-    text-align:center;
-    padding:60px 20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b3d62,
+        #0077b6
+    );
+
+    padding:40px 20px;
+
 }
 
-header h1 {
-    font-size:45px;
-    margin-bottom:10px;
+
+.hero h1{
+
+    font-size:55px;
+    margin-bottom:15px;
+
 }
 
-header p {
+
+.hero h2{
+
+    font-weight:400;
+    margin-bottom:20px;
+
+}
+
+
+.hero p{
+
+    max-width:700px;
+    margin:auto;
     font-size:20px;
+
 }
 
 
-nav {
+
+.btn{
+
+    display:inline-block;
+    margin:25px 10px;
+    padding:14px 28px;
+    border-radius:30px;
     background:white;
-    text-align:center;
-    padding:15px;
-    box-shadow:0 2px 5px #ddd;
+    color:#0b3d62;
+    text-decoration:none;
+    font-weight:bold;
+
 }
 
-nav a {
+
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/* Navigation */
+
+nav{
+
+    position:sticky;
+    top:0;
+    background:white;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 10px #ddd;
+    z-index:100;
+
+}
+
+
+nav a{
+
     margin:15px;
     text-decoration:none;
     color:#0b3d62;
     font-weight:bold;
+
 }
 
 
-.container {
-    max-width:1000px;
+
+/* Sections */
+
+
+.container{
+
+    max-width:1100px;
     margin:auto;
-    padding:30px;
+    padding:60px 20px;
+
 }
 
 
-.card {
+
+section{
+
+    margin-bottom:60px;
+
+}
+
+
+
+.title{
+
+    text-align:center;
+    color:#0b3d62;
+    font-size:32px;
+    margin-bottom:30px;
+
+}
+
+
+
+.card{
 
     background:white;
-    padding:30px;
+    padding:35px;
+    border-radius:20px;
     margin-bottom:25px;
-    border-radius:10px;
-    box-shadow:0 2px 10px #ddd;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
 
 }
 
 
-h2 {
+
+.card:hover{
+
+    transform:translateY(-5px);
+    transition:.3s;
+
+}
+
+
+
+/* Skills */
+
+
+.skills{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+
+.skill{
+
+    background:#e8f3ff;
+    padding:12px 20px;
+    border-radius:25px;
     color:#0b3d62;
-}
-
-
-.button {
-
-background:#0b3d62;
-color:white;
-padding:12px 20px;
-border-radius:5px;
-text-decoration:none;
+    font-weight:bold;
 
 }
 
 
-footer {
 
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
+/* Project */
+
+.project h3{
+
+    color:#0077b6;
 
 }
+
+
+ul{
+
+    padding-left:25px;
+
+}
+
+
+
+/* Footer */
+
+footer{
+
+    background:#0b3d62;
+    color:white;
+    text-align:center;
+    padding:25px;
+
+}
+
 
 
 </style>
@@ -103,30 +241,54 @@ padding:20px;
 
 <header>
 
+
+<div class="hero">
+
 <h1>Anjani Kolluru</h1>
 
-<p>
+<h2>
 Senior Application Developer
-</p>
+</h2>
+
 
 <p>
-Enterprise Software | Identity Automation | Application Security
+
+Building scalable enterprise applications,
+identity automation solutions,
+and secure software systems.
+
 </p>
+
+
+<a class="btn" href="#projects">
+View Projects
+</a>
+
+
+<a class="btn" href="https://github.com/anjanik4" target="_blank">
+GitHub
+</a>
+
+
+</div>
 
 
 </header>
 
 
 
+
 <nav>
 
-<a href="index.html">Home</a>
+<a href="#about">About</a>
 
-<a href="about.html">About</a>
+<a href="#skills">Skills</a>
 
-<a href="projects.html">Projects</a>
+<a href="#projects">Projects</a>
 
-<a href="articles.html">Articles</a>
+<a href="#articles">Articles</a>
+
+<a href="#contact">Contact</a>
 
 
 </nav>
@@ -138,43 +300,106 @@ Enterprise Software | Identity Automation | Application Security
 
 
 
+<section id="about">
+
+<h2 class="title">
+About Me
+</h2>
+
+
 <div class="card">
 
 
-<h2>Welcome</h2>
+<p>
+
+I am a Full Stack Developer with 8+ years of experience designing,
+developing, and supporting enterprise applications using Microsoft
+technologies and modern frontend frameworks.
+
+</p>
 
 
-<div class="card">
+<p>
 
-    <h2>Engineering Practical Software Solutions</h2>
+My expertise includes C#, .NET Core, ASP.NET Web API,
+SQL Server, React, Angular, REST APIs, enterprise integration,
+and identity automation solutions.
 
-    <p>
-        Hi, I'm <strong>Anjani Kolluru</strong>.
-    </p>
+</p>
 
-    <p>
-        I am a Full Stack Developer with over 8 years of experience designing and developing scalable enterprise applications using Microsoft technologies and modern web frameworks. Throughout my career, I have worked across the full software development lifecycle, delivering solutions from concept and architecture to deployment and production support.
-    </p>
 
-    <p>
-        My expertise spans frontend development, backend services, RESTful APIs, database engineering, enterprise system integration, and application automation. I enjoy building software that is secure, reliable, scalable, and designed to solve real-world business challenges.
-    </p>
+<p>
 
-    <p>
-        This website showcases my technical projects, articles, and professional journey as I continue learning, sharing knowledge, and building impactful software solutions.
-    </p>
+I enjoy creating secure, scalable, and reliable software solutions
+that solve complex business problems.
+
+</p>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="skills">
+
+
+<h2 class="title">
+Technical Skills
+</h2>
+
+
+<div class="card skills">
+
+
+<div class="skill">C#</div>
+
+<div class="skill">.NET Core</div>
+
+<div class="skill">ASP.NET Web API</div>
+
+<div class="skill">SQL Server</div>
+
+<div class="skill">SSIS</div>
+
+<div class="skill">React</div>
+
+<div class="skill">Angular</div>
+
+<div class="skill">JavaScript</div>
+
+<div class="skill">Azure</div>
+
+<div class="skill">Active Directory</div>
+
+<div class="skill">LDAP</div>
+
+<div class="skill">REST APIs</div>
+
+<div class="skill">IAM Automation</div>
 
 
 </div>
 
 
+</section>
 
 
 
-<div class="card">
 
 
-<h2>Featured Project</h2>
+<section id="projects">
+
+
+<h2 class="title">
+Featured Project
+</h2>
+
+
+<div class="card project">
 
 
 <h3>
@@ -184,9 +409,8 @@ Identity Reconciliation Automation Framework
 
 <p>
 
-Designed and implemented an automated identity reconciliation solution
-that synchronized enterprise directory status with application access
-controls.
+Designed and implemented an enterprise identity automation framework
+to improve user lifecycle management and application access governance.
 
 </p>
 
@@ -197,115 +421,141 @@ controls.
 Active Directory integration
 </li>
 
-<li>
-SQL Server and SSIS automation
-</li>
 
 <li>
-Enterprise application access management
+SQL Server and SSIS based automation
 </li>
 
+
 <li>
-Security and audit process improvement
+Identity reconciliation across 35 applications
 </li>
+
+
+<li>
+Automated employee deactivation workflow
+</li>
+
+
+<li>
+Improved security and audit compliance
+</li>
+
 
 </ul>
-
-
-<a class="button" href="projects.html">
-View Project
-</a>
 
 
 </div>
 
 
+</section>
 
 
+
+
+
+
+<section id="articles">
+
+
+<h2 class="title">
+Articles
+</h2>
 
 
 <div class="card">
 
 
-<h2>Latest Article</h2>
-
-
 <h3>
-Closing the Identity Lifecycle Gap:
-Automating Application Access Revocation After Employee Offboarding
+Closing the Identity Lifecycle Gap
 </h3>
 
 
 <p>
 
-A technical case study about designing an automated identity
-reconciliation framework for enterprise applications.
+Automating application access revocation after employee offboarding
+using identity reconciliation principles.
 
 </p>
-
-
-<a class="button" href="articles.html">
-Read Article
-</a>
 
 
 </div>
 
 
+</section>
 
 
+
+
+
+
+<section>
+
+
+<h2 class="title">
+Education & Certification
+</h2>
 
 
 <div class="card">
-
-
-<h2>Technical Skills</h2>
 
 
 <p>
+<strong>
+Master of Science in Computer Science
+</strong>
+</p>
 
-C# |
-.NET Core |
-ASP.NET Web API |
-SQL Server |
-SSIS |
-React |
-Angular |
-Active Directory |
-LDAP |
-REST APIs |
-Enterprise Integration
 
+<br>
+
+
+<p>
+<strong>
+Microsoft Certified: Azure AI Fundamentals
+</strong>
 </p>
 
 
 </div>
 
 
+</section>
 
 
+
+
+
+
+
+<section id="contact">
+
+
+<h2 class="title">
+Connect
+</h2>
 
 
 <div class="card">
-
-
-<h2>Connect</h2>
 
 
 <p>
 
 GitHub:
-<a href="https://github.com/anjanik4">
+<a href="https://github.com/anjanik4" target="_blank">
 github.com/anjanik4
 </a>
 
 </p>
 
 
+<br>
+
+
 <p>
 
 LinkedIn:
-<a href="https://www.linkedin.com/in/anjani-kolluru">
+<a href="https://www.linkedin.com/in/anjani-kolluru" target="_blank">
 linkedin.com/in/anjani-kolluru
 </a>
 
@@ -315,18 +565,18 @@ linkedin.com/in/anjani-kolluru
 </div>
 
 
+</section>
+
+
+
 
 </div>
 
 
 
-
-
 <footer>
 
-<p>
-© 2026 Anjani Kolluru
-</p>
+© 2026 Anjani Kolluru | Senior Application Developer
 
 </footer>
 
@@ -335,3 +585,4 @@ linkedin.com/in/anjani-kolluru
 </body>
 
 </html>
+```
