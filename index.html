@@ -6,7 +6,7 @@
 
 <title>Anjani Kolluru | Senior Application Developer</title>
 
-<meta name="description" content="Senior Application Developer specializing in enterprise applications, identity automation, access governance, .NET, SQL Server, Azure, React, Angular, and IAM solutions." />
+<meta name="description" content="Senior Application Developer experienced in NYC DOT transportation applications, Dining Out NYC, .NET, React, Angular, SQL Server, Azure DevOps, SSIS, identity automation, and enterprise software development." />
 
 <style>
 :root{
@@ -46,18 +46,22 @@ ul{
     padding-left:22px;
 }
 
-/* Header / Hero */
+li{
+    margin-bottom:8px;
+}
+
+/* Hero */
 
 .hero{
-    min-height:58vh;
+    min-height:56vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
     color:white;
-    padding:90px 20px 60px;
+    padding:85px 20px 55px;
     background:
-        radial-gradient(circle at top left, rgba(0,180,216,.45), transparent 35%),
+        radial-gradient(circle at top left, rgba(0,180,216,.45), transparent 36%),
         linear-gradient(135deg, #071f35, #0b3d62 48%, #0077b6);
     position:relative;
     overflow:hidden;
@@ -75,7 +79,7 @@ ul{
 }
 
 .hero-content{
-    max-width:920px;
+    max-width:950px;
     position:relative;
     z-index:2;
 }
@@ -105,7 +109,7 @@ ul{
 }
 
 .hero p{
-    max-width:780px;
+    max-width:820px;
     margin:0 auto;
     font-size:18px;
     color:#eef6ff;
@@ -231,7 +235,7 @@ section{
 }
 
 .section-heading p{
-    max-width:720px;
+    max-width:760px;
     margin:12px auto 0;
     color:var(--muted);
 }
@@ -268,15 +272,15 @@ section{
     grid-template-columns:repeat(4, 1fr);
 }
 
+.highlight{
+    color:var(--secondary);
+    font-weight:800;
+}
+
 /* About */
 
 .about-text p{
     margin-bottom:18px;
-}
-
-.highlight{
-    color:var(--secondary);
-    font-weight:800;
 }
 
 /* Impact */
@@ -287,7 +291,7 @@ section{
 
 .metric h3{
     color:var(--secondary);
-    font-size:38px;
+    font-size:36px;
     margin-bottom:5px;
 }
 
@@ -297,6 +301,11 @@ section{
 }
 
 /* Skills */
+
+.skill-category h3{
+    color:var(--dark);
+    margin-bottom:14px;
+}
 
 .skills{
     display:flex;
@@ -308,26 +317,28 @@ section{
     background:#e8f3ff;
     color:var(--primary);
     border:1px solid #cbe7ff;
-    padding:11px 17px;
+    padding:10px 16px;
     border-radius:999px;
     font-weight:800;
     font-size:14px;
 }
 
-/* Project */
+/* Projects */
 
 .project-title{
     color:var(--secondary);
-    font-size:24px;
+    font-size:23px;
     margin-bottom:12px;
 }
 
-.project-list{
-    margin-top:20px;
+.project-subtitle{
+    color:var(--muted);
+    font-weight:700;
+    margin-bottom:16px;
 }
 
-.project-list li{
-    margin-bottom:9px;
+.project-list{
+    margin-top:18px;
 }
 
 .tag-row{
@@ -346,7 +357,7 @@ section{
     font-weight:700;
 }
 
-/* Timeline */
+/* Experience */
 
 .timeline{
     position:relative;
@@ -354,28 +365,19 @@ section{
 
 .timeline-item{
     border-left:4px solid var(--secondary);
-    padding-left:22px;
+    padding-left:24px;
     margin-bottom:28px;
 }
 
 .timeline-item h3{
     color:var(--dark);
-    margin-bottom:6px;
+    margin-bottom:4px;
 }
 
-.timeline-item p{
-    color:var(--muted);
-}
-
-/* Articles */
-
-.article-card h3{
+.timeline-item .date{
     color:var(--secondary);
-    margin-bottom:10px;
-}
-
-.article-card p{
-    color:var(--muted);
+    font-weight:800;
+    margin-bottom:12px;
 }
 
 /* Contact */
@@ -491,21 +493,24 @@ footer{
 
 <header class="hero" id="home">
     <div class="hero-content">
-        <div class="badge">Enterprise Software • Identity Automation • Access Governance</div>
+        <div class="badge">
+            NYC DOT Applications • .NET Full Stack • React • Enterprise Automation
+        </div>
 
         <h1>Anjani Kolluru</h1>
 
         <h2>Senior Application Developer</h2>
 
         <p>
-            Building secure enterprise applications, identity automation frameworks,
-            and scalable software systems that strengthen access governance,
-            compliance, audit readiness, and business-critical operations.
+            Experienced IT professional designing and developing scalable enterprise
+            solutions using Microsoft and .NET technologies, with strong expertise in
+            transportation-sector applications, public-sector digital platforms, secure
+            web systems, and enterprise automation.
         </p>
 
         <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View Featured Work</a>
-            <a class="btn btn-secondary" href="https://github.com/anjanik4" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+            <a class="btn btn-primary" href="#projects">View Featured Projects</a>
+            <a class="btn btn-secondary" href="#contact">Connect With Me</a>
         </div>
     </div>
 </header>
@@ -521,7 +526,7 @@ footer{
             <a href="#impact">Impact</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
-            <a href="#articles">Articles</a>
+            <a href="#experience">Experience</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </div>
@@ -535,70 +540,77 @@ footer{
             <span>Professional Profile</span>
             <h2>About Me</h2>
             <p>
-                A modern enterprise technology profile focused on measurable contribution,
-                technical leadership, security, automation, and scalable application development.
+                Senior application developer with public-sector, enterprise, full-stack,
+                database, automation, and security-focused software experience.
             </p>
         </div>
 
         <div class="card about-text">
             <p>
-                I am a <span class="highlight">Senior Application Developer and Full Stack Engineer</span>
-                with 8+ years of experience designing, developing, and supporting enterprise-grade
-                software solutions across identity management, application security, automation,
-                and business-critical technology platforms.
+                I am an <span class="highlight">experienced IT professional and Senior Application Developer</span>
+                with extensive expertise in designing, developing, and supporting scalable
+                enterprise solutions using Microsoft and .NET technologies, particularly
+                within the <span class="highlight">transportation sector and NYC DOT application ecosystem</span>.
             </p>
 
             <p>
-                My technical expertise includes <span class="highlight">C#, .NET Core, ASP.NET Web API,
-                SQL Server, SSIS, React, Angular, REST APIs, Azure, Active Directory, LDAP, and
-                enterprise integration technologies</span>. I specialize in building secure,
-                maintainable, and scalable applications that support complex business workflows.
+                My core technical strengths include <span class="highlight">N-Tier Architecture, C#,
+                ASP.NET MVC, .NET Core, ASP.NET Web API, Entity Framework, ADO.NET,
+                T-SQL, SQL Server, WCF, RESTful APIs, SOAP, XML, SSIS, React, Angular,
+                JavaScript, Bootstrap, and Material UI</span>.
             </p>
 
             <p>
-                I have contributed to high-impact identity automation and access governance
-                initiatives, including reconciliation frameworks, employee lifecycle automation,
-                and application access control solutions supporting security, compliance,
-                audit readiness, and operational efficiency across large enterprise environments.
+                I have contributed to public-sector digital platforms such as the
+                <span class="highlight">Dining Out NYC application</span>, supporting restaurant licensing
+                workflows, public roadway and sidewalk seating processes, application
+                status tracking, internal review, payments, approvals, and denial workflows.
             </p>
 
             <p>
-                My professional focus is on delivering original, practical, and measurable
-                technology solutions that reduce manual effort, strengthen governance,
-                improve operational reliability, and solve complex enterprise challenges.
+                I also bring strong experience in secure application development,
+                accessibility, multilingual user interfaces, Azure DevOps CI/CD,
+                production support, incident resolution, Active Directory integration,
+                identity automation, and enterprise data workflows.
+            </p>
+
+            <p>
+                I am highly adaptable, collaborative, and effective in both independent
+                and team-oriented environments, with hands-on experience across Agile
+                and Waterfall delivery models.
             </p>
         </div>
     </section>
 
     <section id="impact">
         <div class="section-heading">
-            <span>Enterprise Contribution</span>
+            <span>Professional Impact</span>
             <h2>Impact Highlights</h2>
             <p>
-                Key areas of contribution across identity automation, access governance,
-                enterprise integrations, and secure software delivery.
+                Key areas of contribution across transportation technology, enterprise
+                application development, public-sector services, and automation.
             </p>
         </div>
 
         <div class="grid grid-4">
             <div class="card metric">
                 <h3>8+</h3>
-                <p>Years of Application Development Experience</p>
+                <p>Years of IT and Application Development Experience</p>
             </div>
 
             <div class="card metric">
-                <h3>35</h3>
-                <p>Applications Supported in Identity Reconciliation</p>
+                <h3>NYC DOT</h3>
+                <p>Transportation-Sector Application Experience</p>
             </div>
 
             <div class="card metric">
-                <h3>IAM</h3>
-                <p>Identity and Access Governance Automation</p>
+                <h3>12</h3>
+                <p>Languages Supported Across Web and Mobile Interfaces</p>
             </div>
 
             <div class="card metric">
-                <h3>Full Stack</h3>
-                <p>.NET, SQL Server, React, Angular, Azure</p>
+                <h3>CI/CD</h3>
+                <p>QA and Production Deployment Support Using Azure DevOps</p>
             </div>
         </div>
     </section>
@@ -606,150 +618,263 @@ footer{
     <section id="skills">
         <div class="section-heading">
             <span>Technical Expertise</span>
-            <h2>Core Skills</h2>
+            <h2>Skills</h2>
             <p>
-                Technologies and platforms used to build secure, scalable, and enterprise-ready systems.
+                Full-stack capabilities across Microsoft technologies, modern frontend
+                frameworks, databases, web services, DevOps, and automation.
             </p>
         </div>
 
-        <div class="card">
-            <div class="skills">
-                <div class="skill">C#</div>
-                <div class="skill">.NET Core</div>
-                <div class="skill">ASP.NET Web API</div>
-                <div class="skill">SQL Server</div>
-                <div class="skill">SSIS</div>
-                <div class="skill">React</div>
-                <div class="skill">Angular</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">TypeScript</div>
-                <div class="skill">Azure</div>
-                <div class="skill">Active Directory</div>
-                <div class="skill">LDAP</div>
-                <div class="skill">REST APIs</div>
-                <div class="skill">IAM Automation</div>
-                <div class="skill">Access Governance</div>
-                <div class="skill">Enterprise Integration</div>
-                <div class="skill">Audit Compliance</div>
-                <div class="skill">Application Security</div>
+        <div class="grid grid-2">
+            <div class="card skill-category">
+                <h3>Programming Languages & Frameworks</h3>
+                <div class="skills">
+                    <div class="skill">C#</div>
+                    <div class="skill">.NET Core</div>
+                    <div class="skill">ASP.NET MVC</div>
+                    <div class="skill">ASP.NET Web API</div>
+                    <div class="skill">Entity Framework</div>
+                    <div class="skill">ADO.NET</div>
+                    <div class="skill">T-SQL</div>
+                    <div class="skill">N-Tier Architecture</div>
+                </div>
+            </div>
+
+            <div class="card skill-category">
+                <h3>Frontend Technologies</h3>
+                <div class="skills">
+                    <div class="skill">HTML5</div>
+                    <div class="skill">CSS3</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">jQuery</div>
+                    <div class="skill">Bootstrap</div>
+                    <div class="skill">AJAX</div>
+                    <div class="skill">React</div>
+                    <div class="skill">Angular</div>
+                    <div class="skill">Material UI</div>
+                    <div class="skill">Responsive UI</div>
+                    <div class="skill">WCAG Accessibility</div>
+                </div>
+            </div>
+
+            <div class="card skill-category">
+                <h3>Database, Reporting & Integration</h3>
+                <div class="skills">
+                    <div class="skill">MS SQL Server</div>
+                    <div class="skill">Stored Procedures</div>
+                    <div class="skill">Complex Joins</div>
+                    <div class="skill">SSIS</div>
+                    <div class="skill">Database Design</div>
+                    <div class="skill">Performance Optimization</div>
+                    <div class="skill">Active Directory</div>
+                    <div class="skill">ADSI Linked Server</div>
+                </div>
+            </div>
+
+            <div class="card skill-category">
+                <h3>Web Services, DevOps & Tools</h3>
+                <div class="skills">
+                    <div class="skill">REST APIs</div>
+                    <div class="skill">SOAP</div>
+                    <div class="skill">XML</div>
+                    <div class="skill">WCF</div>
+                    <div class="skill">TFS</div>
+                    <div class="skill">Git</div>
+                    <div class="skill">VSTS</div>
+                    <div class="skill">Azure DevOps</div>
+                    <div class="skill">CI/CD Pipelines</div>
+                    <div class="skill">NUnit</div>
+                    <div class="skill">Jest</div>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <div class="section-heading">
-            <span>Featured Work</span>
-            <h2>Identity Reconciliation Automation Framework</h2>
+            <span>Featured Projects</span>
+            <h2>Enterprise & Public-Sector Applications</h2>
             <p>
-                A business-critical identity automation solution designed to improve user lifecycle
-                management and application access governance.
+                Selected work across NYC DOT digital services, transportation infrastructure,
+                security, automation, and enterprise application development.
             </p>
         </div>
 
-        <div class="card">
-            <h3 class="project-title">Enterprise Identity Reconciliation and Access Governance Automation</h3>
+        <div class="grid grid-2">
 
-            <p>
-                Designed and implemented an enterprise identity automation framework to identify,
-                reconcile, and support access governance across multiple internal applications.
-                The solution improved visibility into user access, strengthened deactivation workflows,
-                and supported audit and compliance requirements.
-            </p>
+            <div class="card">
+                <h3 class="project-title">Dining Out NYC Application</h3>
+                <p class="project-subtitle">NYC DOT | Public-Sector Digital Licensing Platform</p>
 
-            <ul class="project-list">
-                <li>Integrated identity data with Active Directory and LDAP-based enterprise systems.</li>
-                <li>Built SQL Server and SSIS-driven automation workflows for reconciliation and reporting.</li>
-                <li>Supported identity reconciliation across 35 enterprise applications.</li>
-                <li>Improved employee offboarding and access deactivation processes.</li>
-                <li>Reduced manual validation effort and improved operational consistency.</li>
-                <li>Strengthened security controls, audit readiness, and access governance.</li>
-            </ul>
+                <p>
+                    Contributed to the development and maintenance of the Dining Out NYC
+                    application, enabling New York City restaurants to apply for licenses
+                    to utilize public roadways and sidewalks for permitted outdoor seating.
+                    The application supports restaurant representatives as well as DOT
+                    authorized users through review, payment tracking, approval, and denial workflows.
+                </p>
 
-            <div class="tag-row">
-                <span class="tag">Identity Automation</span>
-                <span class="tag">Access Governance</span>
-                <span class="tag">SQL Server</span>
-                <span class="tag">SSIS</span>
-                <span class="tag">Active Directory</span>
-                <span class="tag">Compliance</span>
+                <ul class="project-list">
+                    <li>Developed and maintained responsive, accessible UI components using React.js and Material UI.</li>
+                    <li>Supported WCAG-compliant interfaces across web and mobile platforms.</li>
+                    <li>Implemented multilingual user experiences supporting 12 languages.</li>
+                    <li>Built and integrated .NET Core RESTful APIs for business logic and data communication.</li>
+                    <li>Supported application workflows for new licenses, renewals, application status, reviews, edits, payments, approvals, and denials.</li>
+                    <li>Collaborated with Product Owners, QA, DevOps, and business stakeholders in Agile delivery cycles.</li>
+                    <li>Supported QA and Production deployments through Azure DevOps CI/CD pipelines.</li>
+                    <li>Performed production support and incident resolution for critical application issues.</li>
+                </ul>
+
+                <div class="tag-row">
+                    <span class="tag">NYC DOT</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Material UI</span>
+                    <span class="tag">.NET Core</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">WCAG</span>
+                    <span class="tag">Azure DevOps</span>
+                </div>
             </div>
+
+            <div class="card">
+                <h3 class="project-title">Pavement Works Application</h3>
+                <p class="project-subtitle">NYC DOT | Transportation Infrastructure Management</p>
+
+                <p>
+                    Worked on a transportation-sector application supporting pavement
+                    maintenance planning, execution, and monitoring across New York City’s
+                    transportation infrastructure. The application assists in organizing
+                    operational workflows related to pavement maintenance activities.
+                </p>
+
+                <ul class="project-list">
+                    <li>Participated in SDLC phases including analysis, design, development, testing, and maintenance.</li>
+                    <li>Developed and supported application modules using ASP.NET MVC, .NET Core, Web API, and React.js.</li>
+                    <li>Built and optimized SQL Server schemas, stored procedures, and queries.</li>
+                    <li>Supported backend services and frontend user experiences for operational workflows.</li>
+                    <li>Created and maintained technical documentation for APIs, database schema, and deployment processes.</li>
+                    <li>Contributed to performance and scalability improvements for better application reliability.</li>
+                </ul>
+
+                <div class="tag-row">
+                    <span class="tag">Transportation</span>
+                    <span class="tag">ASP.NET MVC</span>
+                    <span class="tag">.NET Core</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Enterprise Systems</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="project-title">SSIS User Deactivation Automation</h3>
+                <p class="project-subtitle">Identity Automation | Active Directory Integration</p>
+
+                <p>
+                    Built and supported an SSIS-based automation package that disables
+                    users from applications when they are disabled in Active Directory.
+                    The solution centralized the deactivation process and significantly
+                    reduced manual intervention in access removal workflows.
+                </p>
+
+                <ul class="project-list">
+                    <li>Developed SSIS packages to automate user deactivation across applications.</li>
+                    <li>Integrated Active Directory data using ADSI Linked Server and T-SQL queries.</li>
+                    <li>Used SQL Server stored procedures and complex joins for identity data processing.</li>
+                    <li>Improved access governance by streamlining employee deactivation workflows.</li>
+                    <li>Reduced dependency on manual deactivation and repetitive operational tasks.</li>
+                    <li>Supported security, compliance, and audit-readiness objectives.</li>
+                </ul>
+
+                <div class="tag-row">
+                    <span class="tag">SSIS</span>
+                    <span class="tag">SQL Server</span>
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">T-SQL</span>
+                    <span class="tag">Identity Automation</span>
+                    <span class="tag">Access Governance</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="project-title">Application Security Enhancements</h3>
+                <p class="project-subtitle">Secure Web Forms | Sensitive Data Protection</p>
+
+                <p>
+                    Contributed to application security improvements by implementing
+                    reCAPTCHA protection across multiple web forms and supporting efforts
+                    to remove sensitive information from an Access database application.
+                </p>
+
+                <ul class="project-list">
+                    <li>Implemented reCAPTCHA security measures in multiple web forms.</li>
+                    <li>Enhanced protection against automated and abusive form submissions.</li>
+                    <li>Worked on removing sensitive information from an Access database application.</li>
+                    <li>Supported secure application practices and data protection objectives.</li>
+                    <li>Participated in code reviews, unit testing, and integration testing.</li>
+                    <li>Used NUnit and Jest within a test-driven development environment.</li>
+                </ul>
+
+                <div class="tag-row">
+                    <span class="tag">Application Security</span>
+                    <span class="tag">reCAPTCHA</span>
+                    <span class="tag">Data Protection</span>
+                    <span class="tag">NUnit</span>
+                    <span class="tag">Jest</span>
+                    <span class="tag">TDD</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="experience">
         <div class="section-heading">
-            <span>Professional Strength</span>
-            <h2>Areas of Expertise</h2>
-        </div>
-
-        <div class="grid grid-3">
-            <div class="card">
-                <h3>Enterprise Application Development</h3>
-                <p>
-                    Development of scalable business applications using .NET, Web APIs,
-                    SQL Server, React, Angular, and modern frontend technologies.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Identity and Access Automation</h3>
-                <p>
-                    Automation of identity lifecycle processes, access reconciliation,
-                    user deactivation workflows, and governance-driven reporting.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>Secure System Design</h3>
-                <p>
-                    Building reliable, maintainable, and secure solutions that support
-                    compliance, audit requirements, and operational continuity.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="articles">
-        <div class="section-heading">
-            <span>Thought Leadership</span>
-            <h2>Articles</h2>
+            <span>Work History</span>
+            <h2>Professional Experience</h2>
             <p>
-                Topics focused on identity lifecycle automation, access governance,
-                security, and enterprise technology modernization.
+                Current application development experience supporting NYC DOT systems,
+                transportation applications, digital services, automation, and production systems.
             </p>
         </div>
 
-        <div class="grid grid-2">
-            <div class="card article-card">
-                <h3>Closing the Identity Lifecycle Gap</h3>
-                <p>
-                    How automation can improve application access revocation after employee
-                    offboarding using identity reconciliation principles.
-                </p>
-            </div>
+        <div class="card timeline">
+            <div class="timeline-item">
+                <h3>Application Developer</h3>
+                <p class="date">NYCDOT, New York, NY | April 2019 - Current</p>
 
-            <div class="card article-card">
-                <h3>Improving Access Governance Through Reconciliation</h3>
                 <p>
-                    A practical approach to reducing manual access reviews, improving visibility,
-                    and strengthening enterprise audit readiness.
+                    Develop, maintain, and support enterprise and public-sector applications
+                    within the transportation domain, using Microsoft .NET technologies,
+                    React, Angular, SQL Server, Azure DevOps, and enterprise integration tools.
                 </p>
+
+                <ul class="project-list">
+                    <li>Developed responsive and accessible UI components using React.js and Material UI.</li>
+                    <li>Implemented .NET Core RESTful APIs for frontend-backend communication.</li>
+                    <li>Designed SQL Server schemas, stored procedures, and optimized queries for high-performance data operations.</li>
+                    <li>Collaborated with Agile teams through sprint planning, development, testing, reviews, and retrospectives.</li>
+                    <li>Supported deployments across QA and Production environments using Azure DevOps CI/CD pipelines.</li>
+                    <li>Performed production support, troubleshooting, and incident resolution.</li>
+                    <li>Participated in code reviews, unit testing, integration testing, and technical documentation.</li>
+                    <li>Worked with Agile and Waterfall methodologies depending on project delivery needs.</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section id="education">
         <div class="section-heading">
-            <span>Credentials</span>
-            <h2>Education & Certification</h2>
+            <span>Education & Certification</span>
+            <h2>Credentials</h2>
         </div>
 
         <div class="grid grid-2">
             <div class="card">
                 <h3>Master of Science in Computer Science</h3>
                 <p>
-                    Advanced academic foundation in software engineering, computing systems,
-                    and application development.
+                    Graduate-level academic foundation in computer science, software engineering,
+                    application development, and computing systems.
                 </p>
             </div>
 
@@ -768,15 +893,17 @@ footer{
             <span>Connect</span>
             <h2>Professional Links</h2>
             <p>
-                Explore code samples, professional background, and technology contributions.
+                Connect to learn more about my work in enterprise application development,
+                transportation-sector systems, .NET full-stack development, and automation.
             </p>
         </div>
 
         <div class="card contact-box">
             <h3>Let’s Connect</h3>
             <p>
-                Senior Application Developer focused on secure enterprise software,
-                identity automation, and scalable full-stack systems.
+                Senior Application Developer focused on NYC DOT applications, public-sector
+                digital services, .NET full-stack systems, secure web applications,
+                enterprise automation, and SQL Server-based solutions.
             </p>
 
             <div class="contact-links">
